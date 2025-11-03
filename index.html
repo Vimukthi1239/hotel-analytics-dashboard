@@ -590,36 +590,38 @@
         let charts = {};
 
         const sampleData = {
-            totalRevenue: 12500,
-            totalGuests: 45,
-            totalBookings: 28,
-            avgSatisfaction: 4.3,
-            avgNightsStay: 2.5,
-            avgRevenuePerBooking: 446.43,
+            totalRevenue: 27950,
+            totalGuests: 58,
+            totalBookings: 14,
+            avgSatisfaction: 0,
+            avgNightsStay: 2.2142857142857144,
+            avgRevenuePerBooking: 1996.4285714285713,
             roomTypes: {
-                "Deluxe": 12,
-                "Suite": 8,
-                "Standard": 8
+                "Deluxe": 2,
+                "Suite": 3,
+                "Standard": 6,
+                "Presidential": 2,
+                "Executive": 1
             },
             monthlyData: [
-                { month: "Jul", revenue: 2100, guests: 15, bookings: 8 },
-                { month: "Aug", revenue: 3200, guests: 22, bookings: 12 },
-                { month: "Sep", revenue: 2800, guests: 18, bookings: 10 },
-                { month: "Oct", revenue: 4400, guests: 28, bookings: 15 }
+                { month: "Nov", revenue: 20500, guests: 46, bookings: 11 },
+                { month: "Oct", revenue: 7450, guests: 12, bookings: 3 },
+                { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
+                { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
             ],
             predictions: {
-                nextYearRevenue: 172500,
-                nextYearGuests: 621,
+                nextYearRevenue: 32142.499999999996,
+                nextYearGuests: 67,
                 growthRate: 15,
                 insights: [
-                    "Revenue trending upward with 15% growth potential",
-                    "Guest satisfaction above industry average (4.3/5)",
-                    "Average stay duration optimal at 2.5 nights"
+                    "Maintain service quality",
+                    "Focus on high-satisfaction room types",
+                    "Optimize pricing strategy"
                 ],
                 recommendations: [
-                    "Focus on Suite bookings - highest revenue per night",
-                    "Implement loyalty program for repeat customers",
-                    "Optimize pricing during peak seasons"
+                    "Implement loyalty program",
+                    "Expand marketing",
+                    "Improve operational efficiency"
                 ]
             },
             timestamp: new Date().toISOString()
