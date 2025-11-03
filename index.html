@@ -458,7 +458,7 @@
                         <span style="font-size: 2rem;">💰</span>
                         <span class="metric-badge">Current</span>
                     </div>
-                    <div class="metric-value" id="total-revenue">27950</div>
+                    <div class="metric-value" id="total-revenue">28450</div>
                     <div class="metric-label">Total Revenue</div>
                 </div>
                 <div class="metric-card metric-card-green">
@@ -466,7 +466,7 @@
                         <span style="font-size: 2rem;">👥</span>
                         <span class="metric-badge">Total</span>
                     </div>
-                    <div class="metric-value" id="total-guests">58</div>
+                    <div class="metric-value" id="total-guests">63</div>
                     <div class="metric-label">Total Guests</div>
                 </div>
                 <div class="metric-card metric-card-yellow">
@@ -482,7 +482,7 @@
                         <span style="font-size: 2rem;">📅</span>
                         <span class="metric-badge">Average</span>
                     </div>
-                    <div class="metric-value" id="avg-nights">2.2142857142857144</div>
+                    <div class="metric-value" id="avg-nights">2.1333333333333333</div>
                     <div class="metric-label">Nights per Stay</div>
                 </div>
             </div>
@@ -514,15 +514,15 @@
             <div class="grid grid-3">
                 <div class="card">
                     <p class="stat-label">Total Revenue</p>
-                    <p class="stat-value" style="color: #2563eb;" id="revenue-total">27950</p>
+                    <p class="stat-value" style="color: #2563eb;" id="revenue-total">28450</p>
                 </div>
                 <div class="card">
                     <p class="stat-label">Avg per Booking</p>
-                    <p class="stat-value" style="color: #16a34a;" id="revenue-avg">1996.4285714285713</p>
+                    <p class="stat-value" style="color: #16a34a;" id="revenue-avg">1896.6666666666667</p>
                 </div>
                 <div class="card">
                     <p class="stat-label">Total Bookings</p>
-                    <p class="stat-value" style="color: #8b5cf6;" id="revenue-bookings">14</p>
+                    <p class="stat-value" style="color: #8b5cf6;" id="revenue-bookings">15</p>
                 </div>
             </div>
         </div>
@@ -540,11 +540,11 @@
                     <h4 class="card-title">Guest Statistics</h4>
                     <div class="stat-row">
                         <span class="stat-label">Total Guests</span>
-                        <span class="stat-value" id="guests-total">58</span>
+                        <span class="stat-value" id="guests-total">63</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Avg Nights Stay</span>
-                        <span class="stat-value" id="guests-nights">2.2142857142857144</span>
+                        <span class="stat-value" id="guests-nights">2.1333333333333333</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Satisfaction Score</span>
@@ -564,13 +564,13 @@
                 <div class="forecast-card forecast-card-green">
                     <span style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.8;">📈</span>
                     <p class="forecast-label">Next Year Revenue Forecast</p>
-                    <p class="forecast-value" id="forecast-revenue">32142.499999999996</p>
+                    <p class="forecast-value" id="forecast-revenue">32717.499999999996</p>
                     <p class="forecast-badge" id="forecast-growth">+15% Growth Rate</p>
                 </div>
                 <div class="forecast-card forecast-card-blue">
                     <span style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.8;">👥</span>
                     <p class="forecast-label">Expected Guests Next Year</p>
-                    <p class="forecast-value" id="forecast-guests">67</p>
+                    <p class="forecast-value" id="forecast-guests">72</p>
                     <p class="forecast-badge">Based on current trends</p>
                 </div>
             </div>
@@ -590,28 +590,28 @@
         let charts = {};
 
         const sampleData = {
-            totalRevenue: 27950,
-            totalGuests: 58,
-            totalBookings: 14,
+            totalRevenue: 28450,
+            totalGuests: 63,
+            totalBookings: 15,
             avgSatisfaction: 0,
-            avgNightsStay: 2.2142857142857144,
-            avgRevenuePerBooking: 1996.4285714285713,
+            avgNightsStay: 2.1333333333333333,
+            avgRevenuePerBooking: 1896.6666666666667,
             roomTypes: {
                 "Deluxe": 2,
                 "Suite": 3,
-                "Standard": 6,
+                "Standard": 7,
                 "Presidential": 2,
                 "Executive": 1
             },
             monthlyData: [
                 { month: "Nov", revenue: 20500, guests: 46, bookings: 11 },
                 { month: "Oct", revenue: 7450, guests: 12, bookings: 3 },
-                { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
+                { month: "Dec", revenue: 500, guests: 5, bookings: 1 },
                 { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
             ],
             predictions: {
-                nextYearRevenue: 32142.499999999996,
-                nextYearGuests: 67,
+                nextYearRevenue: 32717.499999999996,
+                nextYearGuests: 72,
                 growthRate: 15,
                 insights: [
                     "Maintain service quality",
