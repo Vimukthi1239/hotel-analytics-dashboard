@@ -601,7 +601,6 @@
                 "Suite": 3,
                 "Standard": 7,
                 "Presidential": 3,
-                "Executive": 1
             },
             monthlyData: [
                 { month: "Oct", revenue: 7450, guests: 12, bookings: 3 },
@@ -700,7 +699,7 @@
             document.getElementById('guests-satisfaction').textContent = currentData.avgSatisfaction.toFixed(1) + '/5';
 
             // Room preferences
-            const roomColors = ['#3B82F6', '#10B981', '#F59E0B'];
+            const roomColors = ['#3B82F6', '#10B981', '#F59E0B', '#B727F5'];
             const roomPrefs = document.getElementById('room-preferences');
             roomPrefs.innerHTML = '';
             Object.entries(currentData.roomTypes).forEach(([name, value], index) => {
@@ -759,11 +758,11 @@
 
             // Performance Chart
             const perfData = [
-                (currentData.totalRevenue / 15000) * 100,
+                (currentData.totalRevenue / 34442.5) * 100,
                 (currentData.avgSatisfaction / 5) * 100,
                 (currentData.totalBookings / 50) * 100,
                 75,
-                (currentData.totalGuests / 100) * 100
+                (currentData.totalGuests / 76) * 100
             ];
 
             charts.performance = new Chart(document.getElementById('performance-chart'), {
@@ -793,7 +792,7 @@
             // Room Distribution Chart
             const roomLabels = Object.keys(currentData.roomTypes);
             const roomValues = Object.values(currentData.roomTypes);
-            const roomColors = ['#3B82F6', '#10B981', '#F59E0B'];
+            const roomColors = ['#3B82F6', '#10B981', '#F59E0B', '#B727F5'];
 
             charts.rooms = new Chart(document.getElementById('room-chart'), {
                 type: 'doughnut',
