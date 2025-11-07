@@ -458,7 +458,7 @@
                         <span style="font-size: 2rem;">💰</span>
                         <span class="metric-badge">Current</span>
                     </div>
-                    <div class="metric-value" id="total-revenue">33700</div>
+                    <div class="metric-value" id="total-revenue">38600</div>
                     <div class="metric-label">Total Revenue</div>
                 </div>
                 <div class="metric-card metric-card-green">
@@ -466,7 +466,7 @@
                         <span style="font-size: 2rem;">👥</span>
                         <span class="metric-badge">Total</span>
                     </div>
-                    <div class="metric-value" id="total-guests">77</div>
+                    <div class="metric-value" id="total-guests">82</div>
                     <div class="metric-label">Total Guests</div>
                 </div>
                 <div class="metric-card metric-card-yellow">
@@ -482,7 +482,7 @@
                         <span style="font-size: 2rem;">📅</span>
                         <span class="metric-badge">Average</span>
                     </div>
-                    <div class="metric-value" id="avg-nights">2</div>
+                    <div class="metric-value" id="avg-nights">2.0476190476190474</div>
                     <div class="metric-label">Nights per Stay</div>
                 </div>
             </div>
@@ -514,15 +514,15 @@
             <div class="grid grid-3">
                 <div class="card">
                     <p class="stat-label">Total Revenue</p>
-                    <p class="stat-value" style="color: #2563eb;" id="revenue-total">33700</p>
+                    <p class="stat-value" style="color: #2563eb;" id="revenue-total">38600</p>
                 </div>
                 <div class="card">
                     <p class="stat-label">Avg per Booking</p>
-                    <p class="stat-value" style="color: #16a34a;" id="revenue-avg">1773.6842105263158</p>
+                    <p class="stat-value" style="color: #16a34a;" id="revenue-avg">1838.095238095238</p>
                 </div>
                 <div class="card">
                     <p class="stat-label">Total Bookings</p>
-                    <p class="stat-value" style="color: #8b5cf6;" id="revenue-bookings">19</p>
+                    <p class="stat-value" style="color: #8b5cf6;" id="revenue-bookings">21</p>
                 </div>
             </div>
         </div>
@@ -540,11 +540,11 @@
                     <h4 class="card-title">Guest Statistics</h4>
                     <div class="stat-row">
                         <span class="stat-label">Total Guests</span>
-                        <span class="stat-value" id="guests-total">77</span>
+                        <span class="stat-value" id="guests-total">82</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Avg Nights Stay</span>
-                        <span class="stat-value" id="guests-nights">2</span>
+                        <span class="stat-value" id="guests-nights">2.0476190476190474</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Satisfaction Score</span>
@@ -564,13 +564,13 @@
                 <div class="forecast-card forecast-card-green">
                     <span style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.8;">📈</span>
                     <p class="forecast-label">Next Year Revenue Forecast</p>
-                    <p class="forecast-value" id="forecast-revenue">38755</p>
+                    <p class="forecast-value" id="forecast-revenue">44390</p>
                     <p class="forecast-badge" id="forecast-growth">+15% Growth Rate</p>
                 </div>
                 <div class="forecast-card forecast-card-blue">
                     <span style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.8;">👥</span>
                     <p class="forecast-label">Expected Guests Next Year</p>
-                    <p class="forecast-value" id="forecast-guests">89</p>
+                    <p class="forecast-value" id="forecast-guests">94</p>
                     <p class="forecast-badge">Based on current trends</p>
                 </div>
             </div>
@@ -590,12 +590,12 @@
         let charts = {};
 
         const sampleData = {
-            totalRevenue: 33700,
-            totalGuests: 77,
-            totalBookings: 19,
+            totalRevenue: 38600,
+            totalGuests: 82,
+            totalBookings: 21,
             avgSatisfaction: 0,
-            avgNightsStay: 2,
-            avgRevenuePerBooking: 1773.6842105263158,
+            avgNightsStay: 2.0476190476190474,
+            avgRevenuePerBooking: 1838.095238095238,
             roomTypes: {
                 "Deluxe": 3,
                 "Suite": 5,
@@ -604,13 +604,13 @@
             },
             monthlyData: [
                 { month: "Oct", revenue: 7450, guests: 12, bookings: 3 },
-                { month: "Nov", revenue: 25750, guests: 60, bookings: 15 },
+                { month: "Nov", revenue: 30650, guests: 65, bookings: 17 },
                 { month: "Dec", revenue: 500, guests: 5, bookings: 1 },
                 { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
             ],
             predictions: {
-                nextYearRevenue: 38755,
-                nextYearGuests: 89,
+                nextYearRevenue: 44390,
+                nextYearGuests: 94,
                 growthRate: 15,
                 insights: [
                     "Maintain service quality",
@@ -758,11 +758,11 @@
 
             // Performance Chart
             const perfData = [
-                (currentData.totalRevenue / 38755) * 100,
+                (currentData.totalRevenue / 44390) * 100,
                 (currentData.avgSatisfaction / 5) * 100,
                 (currentData.totalBookings / 50) * 100,
                 75,
-                (currentData.totalGuests / 89) * 100
+                (currentData.totalGuests / 94) * 100
             ];
 
             charts.performance = new Chart(document.getElementById('performance-chart'), {
