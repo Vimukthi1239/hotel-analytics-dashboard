@@ -648,10 +648,10 @@
                 { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
             ],
             predictions: {
-                nextYearRevenue: [object Object],
+                nextYearRevenue: undefined,
                 nextMonthRevenue: undefined,
                 next7DaysRevenue: undefined,
-                nextYearGuests: [object Object],
+                nextYearGuests: undefined,
                 nextMonthGuests: undefined,
                 next7DaysGuests: undefined,
                 growthRate: {
@@ -660,14 +660,14 @@
                     weekly: undefined
                 },
                 insights: [
-                    "Low average satisfaction (0.5/5) indicates urgent need for service improvements to retain guests.",
-                    "Average nights stay (1.96) is low, suggesting limited guest engagement or dissatisfaction with amenities.",
+                    "Low average satisfaction (0.5/5) indicates urgent need for service improvement to retain guests and increase bookings.",
+                    "Average nights stay (1.96) is low, suggesting limited guest retention or appeal for longer stays.",
                     "Suite and Standard rooms are the most booked, but Presidential and Executive rooms are underutilized, indicating potential pricing or marketing issues."
                 ],
                 recommendations: [
-                    "Implement a guest feedback system and address common complaints to improve satisfaction.",
-                    "Offer promotions for longer stays (e.g., discounted rates for 3+ nights) to increase average nights stay.",
-                    "Reposition underutilized room types (Presidential and Executive) with targeted marketing or special packages."
+                    "Implement a guest feedback system and address common complaints to improve satisfaction and encourage repeat bookings.",
+                    "Introduce promotional packages for longer stays (e.g., discounts for 3+ nights) to increase average nights stay.",
+                    "Reevaluate pricing and marketing strategies for underutilized room types (Presidential and Executive) to boost occupancy."
                 ]
             },
             timestamp: new Date().toISOString()
@@ -731,17 +731,17 @@
 
             // Update metrics
             document.getElementById('total-revenue').textContent = '$' + currentData.totalRevenue.toLocaleString();
-            document.getElementById('total-guests').textContent = currentData.totalGuests;
+            document.getElementById('total-guests').textContent = currentData.totalGuests.toLocaleString();
             document.getElementById('avg-satisfaction').textContent = currentData.avgSatisfaction.toFixed(1) + '/5';
             document.getElementById('avg-nights').textContent = currentData.avgNightsStay.toFixed(1);
 
             // Revenue view
             document.getElementById('revenue-total').textContent = '$' + currentData.totalRevenue.toLocaleString();
             document.getElementById('revenue-avg').textContent = '$' + currentData.avgRevenuePerBooking.toFixed(2);
-            document.getElementById('revenue-bookings').textContent = currentData.totalBookings;
+            document.getElementById('revenue-bookings').textContent = currentData.totalBookings.toLocaleString();
 
             // Guests view
-            document.getElementById('guests-total').textContent = currentData.totalGuests;
+            document.getElementById('guests-total').textContent = currentData.totalGuests.toLocaleString();
             document.getElementById('guests-nights').textContent = currentData.avgNightsStay.toFixed(1);
             document.getElementById('guests-satisfaction').textContent = currentData.avgSatisfaction.toFixed(1) + '/5';
 
@@ -807,11 +807,11 @@
 
             // Performance Chart
             const perfData = [
-                (currentData.totalRevenue / [object Object]) * 100,
+                (currentData.totalRevenue / (currentData.predictions?.nextYearRevenue || 1450000)) * 100,
                 (currentData.avgSatisfaction / 5) * 100,
-                (currentData.totalBookings / 50) * 100,
+                (currentData.totalBookings / 1000) * 100,
                 75,
-                (currentData.totalGuests / [object Object]) * 100
+                (currentData.totalGuests / (currentData.predictions?.nextYearGuests || 2850)) * 100
             ];
 
             charts.performance = new Chart(document.getElementById('performance-chart'), {
@@ -1013,7 +1013,7 @@
                             tooltip: {
                                 callbacks: {
                                     label: function(context) {
-                                        return ' + context.parsed.y.toLocaleString();
+                                        return '$' + context.parsed.y.toLocaleString();
                                     }
                                 }
                             }
@@ -1024,7 +1024,7 @@
                                 ticks: {
                                     color: '#e5e7eb',
                                     callback: function(value) {
-                                        return ' + value.toLocaleString();
+                                        return '$' + value.toLocaleString();
                                     }
                                 },
                                 grid: {
