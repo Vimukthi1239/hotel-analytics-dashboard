@@ -648,26 +648,26 @@
                 { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined }
             ],
             predictions: {
-                nextYearRevenue: 57265,
-                nextMonthRevenue: 4772,
-                next7DaysRevenue: 1105,
-                nextYearGuests: 121,
-                nextMonthGuests: 10,
-                next7DaysGuests: 2,
+                nextYearRevenue: undefined,
+                nextMonthRevenue: undefined,
+                next7DaysRevenue: undefined,
+                nextYearGuests: undefined,
+                nextMonthGuests: undefined,
+                next7DaysGuests: undefined,
                 growthRate: {
-                    yearly: 0.3,
-                    monthly: 0.3,
-                    weekly: 0.3
+                    yearly: undefined,
+                    monthly: undefined,
+                    weekly: undefined
                 },
                 insights: [
                     "Low average satisfaction (0.64/5) indicates urgent need for service improvements to retain guests and increase revenue.",
-                    "High demand for 'suite' rooms (7 bookings) suggests potential to optimize pricing or increase availability for premium rooms.",
-                    "Short average stay duration (1.96 nights) highlights an opportunity to promote longer stays through packages or discounts."
+                    "High demand for 'suite' rooms (7 bookings) suggests potential for premium pricing or expanding suite inventory.",
+                    "Short average stay duration (1.96 nights) highlights opportunity to promote longer stays through packages or discounts."
                 ],
                 recommendations: [
-                    "Implement a guest feedback system to identify pain points and improve satisfaction scores.",
-                    "Introduce seasonal promotions and packages to encourage longer stays, especially during off-peak periods.",
-                    "Reallocate resources to increase the availability of high-demand room types (e.g., suites) and adjust pricing dynamically."
+                    "Implement seasonal discounts during low-demand periods (e.g., winter) and premium pricing during peak seasons (e.g., summer).",
+                    "Introduce loyalty programs or extended stay discounts to encourage longer bookings.",
+                    "Invest in guest experience improvements (e.g., staff training, amenities upgrades) to boost satisfaction and repeat visits."
                 ]
             },
             timestamp: new Date().toISOString()
@@ -808,8 +808,8 @@
             // Performance Chart
             const perfData = [
                 (currentData.totalRevenue / (currentData.predictions?.nextYearRevenue || 1450000)) * 100,
-                (currentData.avgSatisfaction / 5) * 100,
-                (currentData.totalBookings / 1000) * 100,
+                (currentData.avgSatisfaction ) * 100,
+                (currentData.totalBookings / ((currentData.predictions?.nextYearGuests || 2850)/3)) * 100,
                 75,
                 (currentData.totalGuests / (currentData.predictions?.nextYearGuests || 2850)) * 100
             ];
