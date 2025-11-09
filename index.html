@@ -479,7 +479,7 @@
                         <span style="font-size: 2rem;">💰</span>
                         <span class="metric-badge">Current</span>
                     </div>
-                    <div class="metric-value" id="total-revenue">38600</div>
+                    <div class="metric-value" id="total-revenue">$0</div>
                     <div class="metric-label">Total Revenue</div>
                 </div>
                 <div class="metric-card metric-card-green">
@@ -487,7 +487,7 @@
                         <span style="font-size: 2rem;">👥</span>
                         <span class="metric-badge">Total</span>
                     </div>
-                    <div class="metric-value" id="total-guests">82</div>
+                    <div class="metric-value" id="total-guests">0</div>
                     <div class="metric-label">Total Guests</div>
                 </div>
                 <div class="metric-card metric-card-yellow">
@@ -503,7 +503,7 @@
                         <span style="font-size: 2rem;">📅</span>
                         <span class="metric-badge">Average</span>
                     </div>
-                    <div class="metric-value" id="avg-nights">2.0476190476190474</div>
+                    <div class="metric-value" id="avg-nights">0</div>
                     <div class="metric-label">Nights per Stay</div>
                 </div>
             </div>
@@ -535,15 +535,15 @@
             <div class="grid grid-3">
                 <div class="card">
                     <p class="stat-label">Total Revenue</p>
-                    <p class="stat-value" style="color: #d4af37;" id="revenue-total">38600</p>
+                    <p class="stat-value" style="color: #d4af37;" id="revenue-total">$0</p>
                 </div>
                 <div class="card">
                     <p class="stat-label">Avg per Booking</p>
-                    <p class="stat-value" style="color: #d4af37;" id="revenue-avg">1838.095238095238</p>
+                    <p class="stat-value" style="color: #d4af37;" id="revenue-avg">$0</p>
                 </div>
                 <div class="card">
                     <p class="stat-label">Total Bookings</p>
-                    <p class="stat-value" style="color: #d4af37;" id="revenue-bookings">21</p>
+                    <p class="stat-value" style="color: #d4af37;" id="revenue-bookings">0</p>
                 </div>
             </div>
         </div>
@@ -561,11 +561,11 @@
                     <h4 class="card-title">Guest Statistics</h4>
                     <div class="stat-row">
                         <span class="stat-label">Total Guests</span>
-                        <span class="stat-value" id="guests-total">82</span>
+                        <span class="stat-value" id="guests-total">0</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Avg Nights Stay</span>
-                        <span class="stat-value" id="guests-nights">2.0476190476190474</span>
+                        <span class="stat-value" id="guests-nights">0</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Satisfaction Score</span>
@@ -585,23 +585,40 @@
                 <div class="forecast-card forecast-card-green">
                     <span style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.8;">📈</span>
                     <p class="forecast-label">Next Year Revenue Forecast</p>
-                    <p class="forecast-value" id="forecast-revenue">44390</p>
-                    <p class="forecast-badge" id="forecast-growth">+15% Growth Rate</p>
+                    <p class="forecast-value" id="forecast-revenue">$0</p>
+                    <p class="forecast-badge" id="forecast-growth">+0% Growth Rate</p>
                 </div>
                 <div class="forecast-card forecast-card-blue">
                     <span style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.8;">👥</span>
                     <p class="forecast-label">Expected Guests Next Year</p>
-                    <p class="forecast-value" id="forecast-guests">94</p>
+                    <p class="forecast-value" id="forecast-guests">0</p>
                     <p class="forecast-badge">Based on current trends</p>
                 </div>
             </div>
+
+            <!-- NEW: Prediction Charts -->
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 class="card-title">Revenue Predictions</h3>
+                    <div class="chart-container">
+                        <canvas id="revenue-predictions-chart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Guest Predictions</h3>
+                    <div class="chart-container">
+                        <canvas id="guest-predictions-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <h3 class="card-title">AI-Generated Insights</h3>
-                <div id="insights-container">Maintain service quality,Focus on high-satisfaction room types,Optimize pricing strategy</div>
+                <div id="insights-container"></div>
             </div>
             <div class="card">
                 <h3 class="card-title">Recommendations</h3>
-                <div id="recommendations-container">Implement loyalty program,Expand marketing,Improve operational efficiency</div>
+                <div id="recommendations-container"></div>
             </div>
         </div>
     </div>
@@ -612,7 +629,7 @@
 
         const sampleData = {
             totalRevenue: 40550,
-            totalGuests:88 ,
+            totalGuests: 88,
             totalBookings: 23,
             avgSatisfaction: 0.30434782608695654,
             avgNightsStay: 1.9565217391304348,
@@ -621,27 +638,36 @@
                 "Deluxe": 3,
                 "Suite": 6,
                 "Standard": 8,
-                "Presidential": 3,
+                "Presidential": 3
             },
             monthlyData: [
                 { month: "Oct", revenue: 7450, guests: 12, bookings: 3 },
                 { month: "Nov", revenue: 32600, guests: 71, bookings: 19 },
                 { month: "Dec", revenue: 500, guests: 5, bookings: 1 },
                 { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
+                { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
             ],
             predictions: {
-                nextYearRevenue: 46632.5,
-                nextYearGuests: 101,
-                growthRate: 15,
+                nextYearRevenue: 50687.5,
+                nextMonthRevenue: 3375,
+                next7DaysRevenue: 750,
+                nextYearGuests: 110,
+                nextMonthGuests: 9,
+                next7DaysGuests: 2,
+                growthRate: {
+                    yearly: 0.25,
+                    monthly: 0.25,
+                    weekly: 0.25
+                },
                 insights: [
-                    "Maintain service quality",
-                    "Focus on high-satisfaction room types",
-                    "Optimize pricing strategy"
+                    "Low average satisfaction (0.304/5) indicates urgent need for service improvements to retain guests.",
+                    "Average nights stay is less than 2, suggesting opportunities to promote longer stays or packages.",
+                    "Suite and Standard rooms are most booked, while Presidential and Executive rooms are underutilized."
                 ],
                 recommendations: [
-                    "Implement loyalty program",
-                    "Expand marketing",
-                    "Improve operational efficiency"
+                    "Implement a guest feedback system and address pain points to improve satisfaction.",
+                    "Introduce promotional packages (e.g., extended stay discounts, complimentary upgrades) to increase average nights stay.",
+                    "Reposition underutilized room types (Presidential, Executive) with targeted marketing or price adjustments."
                 ]
             },
             timestamp: new Date().toISOString()
@@ -741,7 +767,9 @@
             if (currentData.predictions) {
                 document.getElementById('forecast-revenue').textContent = '$' + currentData.predictions.nextYearRevenue.toLocaleString();
                 document.getElementById('forecast-guests').textContent = currentData.predictions.nextYearGuests.toLocaleString();
-                document.getElementById('forecast-growth').textContent = '+' + currentData.predictions.growthRate + '% Growth Rate';
+                
+                const yearlyGrowth = currentData.predictions.growthRate?.yearly || 0;
+                document.getElementById('forecast-growth').textContent = '+' + (yearlyGrowth * 100).toFixed(0) + '% Growth Rate';
 
                 // Insights
                 const insightsContainer = document.getElementById('insights-container');
@@ -779,11 +807,11 @@
 
             // Performance Chart
             const perfData = [
-                (currentData.totalRevenue / 44390) * 100,
+                (currentData.totalRevenue / 50687.5) * 100,
                 (currentData.avgSatisfaction / 5) * 100,
                 (currentData.totalBookings / 50) * 100,
                 75,
-                (currentData.totalGuests / 94) * 100
+                (currentData.totalGuests / 110) * 100
             ];
 
             charts.performance = new Chart(document.getElementById('performance-chart'), {
@@ -806,7 +834,7 @@
                             beginAtZero: true,
                             max: 100,
                             ticks: {
-                                color: 'white'
+                                color: '#e5e7eb'
                             },
                             grid: {
                                 color: 'rgba(212, 175, 55, 0.2)'
@@ -842,7 +870,14 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e5e7eb'
+                            }
+                        }
+                    }
                 }
             });
 
@@ -862,7 +897,32 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e5e7eb'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                color: '#e5e7eb'
+                            },
+                            grid: {
+                                color: 'rgba(212, 175, 55, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#e5e7eb'
+                            },
+                            grid: {
+                                color: 'rgba(212, 175, 55, 0.1)'
+                            }
+                        }
+                    }
                 }
             });
 
@@ -886,9 +946,168 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e5e7eb'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                color: '#e5e7eb'
+                            },
+                            grid: {
+                                color: 'rgba(212, 175, 55, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#e5e7eb'
+                            },
+                            grid: {
+                                color: 'rgba(212, 175, 55, 0.1)'
+                            }
+                        }
+                    }
                 }
             });
+
+            // NEW: Revenue Predictions Chart
+            if (currentData.predictions) {
+                charts.revenuePredictions = new Chart(document.getElementById('revenue-predictions-chart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['7 Days', 'Next Month', 'Next Year'],
+                        datasets: [{
+                            label: 'Predicted Revenue ($)',
+                            data: [
+                                currentData.predictions.next7DaysRevenue || 0,
+                                currentData.predictions.nextMonthRevenue || 0,
+                                currentData.predictions.nextYearRevenue || 0
+                            ],
+                            backgroundColor: [
+                                'rgba(59, 130, 246, 0.8)',
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(212, 175, 55, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgb(59, 130, 246)',
+                                'rgb(16, 185, 129)',
+                                'rgb(212, 175, 55)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#e5e7eb'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return ' + context.parsed.y.toLocaleString();
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#e5e7eb',
+                                    callback: function(value) {
+                                        return ' + value.toLocaleString();
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(212, 175, 55, 0.1)'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#e5e7eb'
+                                },
+                                grid: {
+                                    color: 'rgba(212, 175, 55, 0.1)'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // NEW: Guest Predictions Chart
+                charts.guestPredictions = new Chart(document.getElementById('guest-predictions-chart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['7 Days', 'Next Month', 'Next Year'],
+                        datasets: [{
+                            label: 'Predicted Guests',
+                            data: [
+                                currentData.predictions.next7DaysGuests || 0,
+                                currentData.predictions.nextMonthGuests || 0,
+                                currentData.predictions.nextYearGuests || 0
+                            ],
+                            backgroundColor: [
+                                'rgba(139, 92, 246, 0.8)',
+                                'rgba(245, 158, 11, 0.8)',
+                                'rgba(220, 38, 38, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgb(139, 92, 246)',
+                                'rgb(245, 158, 11)',
+                                'rgb(220, 38, 38)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#e5e7eb'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.parsed.y.toLocaleString() + ' guests';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#e5e7eb',
+                                    stepSize: 1
+                                },
+                                grid: {
+                                    color: 'rgba(212, 175, 55, 0.1)'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#e5e7eb'
+                                },
+                                grid: {
+                                    color: 'rgba(212, 175, 55, 0.1)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
         }
 
         // Load sample data on page load
