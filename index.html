@@ -978,7 +978,7 @@
             // NEW: Revenue Predictions Chart
             if (currentData.predictions) {
                 charts.revenuePredictions = new Chart(document.getElementById('revenue-predictions-chart'), {
-                    type: 'line',
+                    type: 'bar',
                     data: {
                         labels: ['7 Days', 'Next Month', 'Next Year'],
                         datasets: [{
@@ -1045,7 +1045,7 @@
 
                 // NEW: Guest Predictions Chart
                 charts.guestPredictions = new Chart(document.getElementById('guest-predictions-chart'), {
-                    type: 'line',
+                    type: 'bar',
                     data: {
                         labels: ['7 Days', 'Next Month', 'Next Year'],
                         datasets: [{
