@@ -628,14 +628,14 @@
         let charts = {};
 
         const sampleData = {
-            totalRevenue: 44050,
-            totalGuests: 93,
-            totalBookings: 25,
-            avgSatisfaction: 0.64,
-            avgNightsStay: 1.96,
-            avgRevenuePerBooking: 1762,
+            totalRevenue: 45800,
+            totalGuests: 98,
+            totalBookings: 26,
+            avgSatisfaction: 0.7692307692307693,
+            avgNightsStay: 1.9230769230769231,
+            avgRevenuePerBooking: 1761.5384615384614,
             roomTypes: {
-                "Deluxe": 4,
+                "Deluxe": 5,
                 "Suite": 7,
                 "Standard": 8,
                 "Presidential": 3
@@ -645,29 +645,29 @@
                 { month: "Nov", revenue: 32600, guests: 71, bookings: 19 },
                 { month: "Dec", revenue: 2600, guests: 8, bookings: 2 },
                 { month: "Jan", revenue: 1400, guests: 2, bookings: 1 },
-                { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined }
+                { month: "Feb", revenue: 1750, guests: 5, bookings: 1 }
             ],
             predictions: {
-                nextYearRevenue: 57265,
-                nextMonthRevenue: 4772,
-                next7DaysRevenue: 1105,
-                nextYearGuests: 121,
+                nextYearRevenue: 55418,
+                nextMonthRevenue: 4618,
+                next7DaysRevenue: 1047,
+                nextYearGuests: 118,
                 nextMonthGuests: 10,
                 next7DaysGuests: 2,
                 growthRate: {
-                    yearly: 0.3,
-                    monthly: 0.3,
-                    weekly: 0.3
+                    yearly: 0.21,
+                    monthly: 0.21,
+                    weekly: 0.21
                 },
                 insights: [
-                    "Low average satisfaction (0.64/5) indicates urgent need for service improvement to retain guests and increase revenue.",
-                    "Average nights stay (1.96) is low, suggesting limited success in encouraging longer stays or repeat bookings.",
-                    "Suite and Standard rooms are the most booked, while Presidential and Executive rooms are underutilized, indicating potential pricing or marketing issues."
+                    "The average satisfaction score of 0.769/5 indicates significant room for improvement in guest experience, which could directly impact repeat bookings and revenue.",
+                    "The average nights stay of 1.92 suggests a focus on short-term stays, potentially missing opportunities for longer-term bookings.",
+                    "The distribution of room types shows a preference for 'suite' and 'standard' rooms, while 'presidential' and 'executive' rooms are underutilized, indicating possible pricing or marketing issues."
                 ],
                 recommendations: [
-                    "Implement a guest feedback system and address common complaints to improve satisfaction and encourage repeat bookings.",
-                    "Introduce promotional packages (e.g., extended stay discounts, loyalty programs) to increase average nights stay and revenue per guest.",
-                    "Reevaluate pricing and marketing strategies for underutilized room types (Presidential and Executive) to boost occupancy rates."
+                    "Implement a guest feedback system to identify pain points and improve satisfaction, potentially increasing repeat bookings and positive reviews.",
+                    "Introduce promotional packages for longer stays (e.g., 3+ nights) to increase average nights stay and overall revenue.",
+                    "Reevaluate pricing and marketing strategies for underutilized room types (e.g., 'presidential' and 'executive') to attract more bookings for these premium rooms."
                 ]
             },
             timestamp: new Date().toISOString()
@@ -978,7 +978,7 @@
             // NEW: Revenue Predictions Chart
             if (currentData.predictions) {
                 charts.revenuePredictions = new Chart(document.getElementById('revenue-predictions-chart'), {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: ['7 Days', 'Next Month', 'Next Year'],
                         datasets: [{
@@ -1045,7 +1045,7 @@
 
                 // NEW: Guest Predictions Chart
                 charts.guestPredictions = new Chart(document.getElementById('guest-predictions-chart'), {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: ['7 Days', 'Next Month', 'Next Year'],
                         datasets: [{
