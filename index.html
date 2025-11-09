@@ -628,46 +628,46 @@
         let charts = {};
 
         const sampleData = {
-            totalRevenue: 40550,
-            totalGuests: 88,
-            totalBookings: 23,
-            avgSatisfaction: 0.30434782608695654,
-            avgNightsStay: 1.9565217391304348,
-            avgRevenuePerBooking: 1763.0434782608695,
+            totalRevenue: 42650,
+            totalGuests: 91,
+            totalBookings: 24,
+            avgSatisfaction: 0.5,
+            avgNightsStay: 1.9583333333333333,
+            avgRevenuePerBooking: 1777.0833333333333,
             roomTypes: {
                 "Deluxe": 3,
-                "Suite": 6,
+                "Suite": 7,
                 "Standard": 8,
                 "Presidential": 3
             },
             monthlyData: [
                 { month: "Oct", revenue: 7450, guests: 12, bookings: 3 },
                 { month: "Nov", revenue: 32600, guests: 71, bookings: 19 },
-                { month: "Dec", revenue: 500, guests: 5, bookings: 1 },
+                { month: "Dec", revenue: 2600, guests: 8, bookings: 2 },
                 { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
                 { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
             ],
             predictions: {
-                nextYearRevenue: 50687.5,
-                nextMonthRevenue: 3375,
-                next7DaysRevenue: 750,
-                nextYearGuests: 110,
-                nextMonthGuests: 9,
-                next7DaysGuests: 2,
+                nextYearRevenue: [object Object],
+                nextMonthRevenue: undefined,
+                next7DaysRevenue: undefined,
+                nextYearGuests: [object Object],
+                nextMonthGuests: undefined,
+                next7DaysGuests: undefined,
                 growthRate: {
-                    yearly: 0.25,
-                    monthly: 0.25,
-                    weekly: 0.25
+                    yearly: undefined,
+                    monthly: undefined,
+                    weekly: undefined
                 },
                 insights: [
-                    "Low average satisfaction (0.304/5) indicates urgent need for service improvements to retain guests.",
-                    "Average nights stay is less than 2, suggesting opportunities to promote longer stays or packages.",
-                    "Suite and Standard rooms are most booked, while Presidential and Executive rooms are underutilized."
+                    "Low average satisfaction (0.5/5) indicates urgent need for service improvements to retain guests.",
+                    "Average nights stay (1.96) is low, suggesting limited guest engagement or dissatisfaction with amenities.",
+                    "Suite and Standard rooms are the most booked, but Presidential and Executive rooms are underutilized, indicating potential pricing or marketing issues."
                 ],
                 recommendations: [
-                    "Implement a guest feedback system and address pain points to improve satisfaction.",
-                    "Introduce promotional packages (e.g., extended stay discounts, complimentary upgrades) to increase average nights stay.",
-                    "Reposition underutilized room types (Presidential, Executive) with targeted marketing or price adjustments."
+                    "Implement a guest feedback system and address common complaints to improve satisfaction.",
+                    "Offer promotions for longer stays (e.g., discounted rates for 3+ nights) to increase average nights stay.",
+                    "Reposition underutilized room types (Presidential and Executive) with targeted marketing or special packages."
                 ]
             },
             timestamp: new Date().toISOString()
@@ -807,11 +807,11 @@
 
             // Performance Chart
             const perfData = [
-                (currentData.totalRevenue / 50687.5) * 100,
+                (currentData.totalRevenue / [object Object]) * 100,
                 (currentData.avgSatisfaction / 5) * 100,
                 (currentData.totalBookings / 50) * 100,
                 75,
-                (currentData.totalGuests / 110) * 100
+                (currentData.totalGuests / [object Object]) * 100
             ];
 
             charts.performance = new Chart(document.getElementById('performance-chart'), {
