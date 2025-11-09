@@ -628,14 +628,14 @@
         let charts = {};
 
         const sampleData = {
-            totalRevenue: 42650,
-            totalGuests: 91,
-            totalBookings: 24,
-            avgSatisfaction: 0.5,
-            avgNightsStay: 1.9583333333333333,
-            avgRevenuePerBooking: 1777.0833333333333,
+            totalRevenue: 44050,
+            totalGuests: 93,
+            totalBookings: 25,
+            avgSatisfaction: 0.64,
+            avgNightsStay: 1.96,
+            avgRevenuePerBooking: 1762,
             roomTypes: {
-                "Deluxe": 3,
+                "Deluxe": 4,
                 "Suite": 7,
                 "Standard": 8,
                 "Presidential": 3
@@ -644,30 +644,30 @@
                 { month: "Oct", revenue: 7450, guests: 12, bookings: 3 },
                 { month: "Nov", revenue: 32600, guests: 71, bookings: 19 },
                 { month: "Dec", revenue: 2600, guests: 8, bookings: 2 },
-                { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
-                { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined },
+                { month: "Jan", revenue: 1400, guests: 2, bookings: 1 },
+                { month: "undefined", revenue: undefined, guests: undefined, bookings: undefined }
             ],
             predictions: {
-                nextYearRevenue: undefined,
-                nextMonthRevenue: undefined,
-                next7DaysRevenue: undefined,
-                nextYearGuests: undefined,
-                nextMonthGuests: undefined,
-                next7DaysGuests: undefined,
+                nextYearRevenue: 57265,
+                nextMonthRevenue: 4772,
+                next7DaysRevenue: 1105,
+                nextYearGuests: 121,
+                nextMonthGuests: 10,
+                next7DaysGuests: 2,
                 growthRate: {
-                    yearly: undefined,
-                    monthly: undefined,
-                    weekly: undefined
+                    yearly: 0.3,
+                    monthly: 0.3,
+                    weekly: 0.3
                 },
                 insights: [
-                    "Low average satisfaction (0.5/5) indicates urgent need for service improvement to retain guests and increase bookings.",
-                    "Average nights stay (1.96) is low, suggesting limited guest retention or appeal for longer stays.",
-                    "Suite and Standard rooms are the most booked, but Presidential and Executive rooms are underutilized, indicating potential pricing or marketing issues."
+                    "Low average satisfaction (0.64/5) indicates urgent need for service improvements to retain guests and increase revenue.",
+                    "High demand for 'suite' rooms (7 bookings) suggests potential to optimize pricing or increase availability for premium rooms.",
+                    "Short average stay duration (1.96 nights) highlights an opportunity to promote longer stays through packages or discounts."
                 ],
                 recommendations: [
-                    "Implement a guest feedback system and address common complaints to improve satisfaction and encourage repeat bookings.",
-                    "Introduce promotional packages for longer stays (e.g., discounts for 3+ nights) to increase average nights stay.",
-                    "Reevaluate pricing and marketing strategies for underutilized room types (Presidential and Executive) to boost occupancy."
+                    "Implement a guest feedback system to identify pain points and improve satisfaction scores.",
+                    "Introduce seasonal promotions and packages to encourage longer stays, especially during off-peak periods.",
+                    "Reallocate resources to increase the availability of high-demand room types (e.g., suites) and adjust pricing dynamically."
                 ]
             },
             timestamp: new Date().toISOString()
